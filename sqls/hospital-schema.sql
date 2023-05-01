@@ -71,3 +71,33 @@ create table Orders(
 	foreign key (pID) references patient(pID),
     foreign key (iCode) references instruction(iCode)
 );
+
+create table Execution(
+	iCode int,
+    nID int,
+    pID int,
+    date varchar(20),
+    hstatus varchar(50),
+    primary key (iCode,nID,pID,date),
+    foreign key (pID) references patient(pID),
+    foreign key (iCode) references instruction(iCode),
+    foreign key (nID) references nurse(nID)
+);
+
+create table medicate(
+	medication varchar(20),
+	nID int,
+    pID int,
+    primary key (medication,nID,pID),
+	foreign key (nID) references nurse(nID),
+    foreign key (pID) references patient(pID)
+);
+
+create table hospitalization(
+	nights int,
+    roomNum int,
+    pID int,
+    primary key (pID,roomNum),
+    foreign key (pID) references patient(pID),
+	foreign key (roomNum) references room(roomNum)
+);

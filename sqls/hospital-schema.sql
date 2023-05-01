@@ -60,3 +60,14 @@ create table monitor(
     foreign key (physID) references physician(physID),
 	foreign key (pID) references patient(pID)
 );
+
+create table Orders(
+	date varchar(20),
+	iCode int,
+    physID int,
+	pID int,
+    primary key (iCode, pID, physID),
+    foreign key (physID) references physician(physID),
+	foreign key (pID) references patient(pID),
+    foreign key (iCode) references instruction(iCode)
+);

@@ -12,14 +12,21 @@ select * from;
 
 -- Three join queries -- 
 
---  Select the health record of patient given the name "John Jones"
-select * from patient;
+--  Find the disease of the patient "John Jones"
+select name, disease 
+from patient
+join health_record
+on patient.pID = health_record.pID
+where patient.name = "John Jones";
+
 
 select * from;
 
 select * from;
 
 -- Three Aggregation Queries --
+
+
 select * from;
 
 select * from;

@@ -11,6 +11,8 @@ select * from;
 select * from;
 
 -- Three join queries -- 
+
+--  Select the health record of patient given the name "John Jones"
 select * from patient;
 
 select * from;
@@ -33,6 +35,7 @@ select * from;
 
 
 -- 3 Views 
+
 
 
 -- 3 Triggers

@@ -5,21 +5,21 @@ USE hospital;
 -- Creating the entities 
 create table patient(
 	pID int Primary key,
-    phone int,
+    phone bigint,
     name varchar (50),
     address varchar (100)    
 );
 create table nurse(
 	nID int PRIMARY KEY,
     nname varchar(50),
-    phone int,
+    phone bigint,
     cert int,
     address varchar (100)
 );
 create table physician(
 	physID int PRIMARY KEY,
     pname varchar(50),
-    phone int,
+    phone bigint,
     cert int,
     address varchar (100),
     expertise varchar(50)

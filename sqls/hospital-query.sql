@@ -12,7 +12,7 @@ select * from;
 
 -- Three join queries -- 
 
---  Find the disease of the patient "John Jones"
+--  Find the disease(s) of the patient "John Jones"
 select name, disease 
 from patient
 join health_record
@@ -20,9 +20,19 @@ on patient.pID = health_record.pID
 where patient.name = "John Jones";
 
 
-select * from;
+-- Find the address of the patient residing in hospital room 1
+select roomNum, address
+from room
+join patient
+on room.pID = patient.pID
+where room.roomNum = 1;
 
-select * from;
+-- Find the desciptions of all instructions given by the Physician "Alexander Fleming"
+select name, descript 
+from physician
+join instruction
+on physician.physID = instruction.physID
+where pname = "Alexander Fleming";
 
 -- Three Aggregation Queries --
 

@@ -28,13 +28,15 @@ create table physician(
 create table room(
 	roomNum int primary key,
     capacity int,
-    fee int
+    fee int,
+    foreign key (pID) references patient(pID)
 );
 
 create table instruction(
 	iCode int primary key,
     fee int,
-    Descript varchar(100)
+    descript varchar(100),
+    foreign key (physID) references physician(physID)
 );
 
 create table health_record(
@@ -61,7 +63,7 @@ create table monitor(
 	foreign key (pID) references patient(pID)
 );
 
-create table Orders(
+create table orders(
 	date varchar(20),
 	iCode int,
     physID int,
@@ -72,7 +74,7 @@ create table Orders(
     foreign key (iCode) references instruction(iCode)
 );
 
-create table Execution(
+create table execution(
 	iCode int,
     nID int,
     pID int,

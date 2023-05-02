@@ -106,18 +106,14 @@ create table hospitalization(
 );
 
 create table roomCharge(
-	pID int,
     roomNum int,
     fee int,
-	foreign key (pID) references patient(pID),
     foreign key (roomNum) references room(roomNum)
 );
 
 create table instructionCharge(
-	iCode int,
     pID int,
     fee int,
-	foreign key (pID) references patient(pID),
     foreign key (iCode) references instruction(iCode)
 );
 

@@ -1,3 +1,4 @@
+-- Find the address of all patients. 
 select * from;
 
 select * from;
@@ -10,7 +11,7 @@ select * from;
 
 select * from;
 
--- Three join queries -- 
+-- Three join queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --  Find the disease(s) of the patient "John Jones"
 select name, disease 
@@ -34,7 +35,7 @@ join instruction
 on physician.physID = instruction.physID
 where pname = "Alexander Fleming";
 
--- Three Aggregation Queries --
+-- Three Aggregation Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Select count of people staying in room number "357"
 select * from;
@@ -44,21 +45,36 @@ select * from;
 select * from;
 
 -- Three Nested Queries
-select * from;
+
+-- Find all patients with pneumonia being treated by doctor XXX
+select patient.name as "Name", disease 
+from patient 
+where patient.name in (select name from patient)
+and disease = 'Pneumonia';
 
 select * from;
 
 select * from;
 
 
--- 3 Views 
+-- 3 Views ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Staff Contact List View.
+create view staff_list as
+select 
+
+-- Medication View. 
+create view medicate_patient as
+select 
+-- 
 
 
 
--- 3 Triggers
+-- 3 Triggers ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 DELIMITER //
-create trigger friendly_trigger
-before insert on Highschooler 
+create trigger payInvoice
+after insert on payment
+ 
 for each row
 begin
   IF New.name = "Friendly" THEN
@@ -66,9 +82,9 @@ begin
     where Highschooler.grade = New.grade;
   END IF;
 end //
-DELIMITER ;
+DELIMITER;
 
 
--- 2 Transactions
+-- 2 Transactions ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

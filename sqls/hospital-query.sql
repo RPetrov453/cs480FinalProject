@@ -62,22 +62,22 @@ select * from;
 -- Staff Contact List View.
 create view staff_list as
 select pname, phone, expertise
-from physician
+from physician;
 
 -- Medication View. 
 create view medicate_patient as
 select patient.name, medication, roomNum 
 from medicate 
 join patient on patient.pID = medicate.pID 
-join hospitalization on medicate.pID = hospitalization.pID
+join hospitalization on medicate.pID = hospitalization.pID;
 
 -- Execution View
 create view execute_instructions as
-select nurse.nname, date, iCode, patient.name, roomNum,
+select nurse.nname, date, iCode, patient.name, roomNum
 from execution 
 join nurse on execution.nID = nurse.nID
 join patient on patient.pID = execution.pID 
-join hospitalization on patient.pID = hospitalization.pID
+join hospitalization on patient.pID = hospitalization.pID;
 
 
 -- 3 Triggers ----------------------------------------------------------------------------------------------------------------------------------------------------------------

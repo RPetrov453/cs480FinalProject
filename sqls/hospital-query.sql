@@ -1,5 +1,7 @@
--- Find the address of all patients whose names start with the letter K. 
-select  from;
+-- Find the address of all patients whose names start with the letter M. 
+select name, address 
+from patient
+where name like 'M%';
 
 select * from;
 
@@ -21,18 +23,19 @@ on patient.pID = health_record.pID
 where patient.name = "John Jones";
 
 
--- Find the address of the patient residing in hospital room 1
-select roomNum, address
-from room
+-- Find the name/address of the patient residing in hospital room 1
+select patient.name, address, roomNum
+from hospitalization
 join patient
-on room.pID = patient.pID
-where room.roomNum = 1;
+on hospitalization.pID = patient.pID
+where hospitalization.roomNum = 001;
 
 -- Find the desciptions of all instructions given by the Physician "Alexander Fleming"
-select name, descript 
+select pname, descript 
 from physician
-join instruction
-on physician.physID = instruction.physID
+join orders
+on physician.physID = orders.physID
+join instruction on instruction.iCode = orders.iCode
 where pname = "Alexander Fleming";
 
 -- Three Aggregation Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------

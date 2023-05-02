@@ -112,7 +112,7 @@ create table roomCharge(
 );
 
 create table instructionCharge(
-    pID int,
+    iCode int,
     fee int,
     foreign key (iCode) references instruction(iCode)
 );

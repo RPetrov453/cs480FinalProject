@@ -16,10 +16,10 @@ values (456, 5678901234, 'Marion Atkins', '7638 Hamilton Circle');
 
 
 -- HOSPITAL NURSES --
-insert into nurse (nID, nname, phone, cert, address, expertise)
+insert into nurse (nID, nname, phone, cert, address)
 values (786,'Robert Petrov', 1325839451, 3152, '1204 North Kingston Ave');
 
-insert into nurse (nID, nname, phone, cert, address, expertise)
+insert into nurse (nID, nname, phone, cert, address)
 values (486,'Clarence Newton', 5667564681, 6214, '401 West Maple Road');
 
 insert into nurse (nID, nname, phone, cert, address)

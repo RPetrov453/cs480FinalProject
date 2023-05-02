@@ -111,7 +111,7 @@ insert into invoice (record, amount, invId, pId)
 values ('fed 3x, stayed 6 days', 4750,641,785);
 
 insert into invoice (record, amount, invId, pId)
-values ('fed 2x, stayed 1 day, received surgery', 3450,786,789);
+values ('fed 2x, stayed 1 day, received surgery', 3450,874,789);
 
 insert into invoice (record, amount, invId, pId)
 values ('fed 14x, stayed 7 days', 9825,124,456);
@@ -153,35 +153,35 @@ values ('03-28-2023',251,345,456);
 
 -- EXECUTION --
 insert into execution(iCode, nID, pID, date, hstatus)
-values ();
+values (124,786,789,'05-01-2023','patient is stable');
 
 insert into execution(iCode, nID, pID, date, hstatus)
-values ();
+values (612,486,635,'04-16-2023','patient is stable');
 
 insert into execution(iCode, nID, pID, date, hstatus)
-values ();
+values (251,453,456,'03-28-2023','patient is stable');
 
 insert into execution(iCode, nID, pID, date, hstatus)
-values ();
+values (723,687,785,'04-19-2023','patient is stable');
 
 insert into execution(iCode, nID, pID, date, hstatus)
-values ();
+values (161,157,124,'04-29-2023','patient\'s condition has worsened');
 
 -- MEDICATE --
 insert into medicate (medication, nID, pID)
-values ();
+values ('tylenol',786,124);
 
 insert into medicate (medication, nID, pID)
-values ();
+values ('advil',486,635);
 
 insert into medicate (medication, nID, pID)
-values ();
+values ('excedrin',453,785);
 
 insert into medicate (medication, nID, pID)
-values ();
+values ('morphine',687,789);
 
 insert into medicate (medication, nID, pID)
-values ();
+values ('bayer',157,456);
 
 -- HOSPITALIZATION
 insert into hospitalization (nights, roomNum, pId)

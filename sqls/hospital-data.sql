@@ -185,19 +185,19 @@ values ('bayer',157,456);
 
 -- HOSPITALIZATION
 insert into hospitalization (nights, roomNum, pId)
-values ();
+values (3,001,124);
 
 insert into hospitalization (nights, roomNum, pId)
-values ();
+values (15,002,635);
 
 insert into hospitalization (nights, roomNum, pId)
-values ();
+values (11,003,785);
 
 insert into hospitalization (nights, roomNum, pId)
-values ();
+values (1,004,789);
 
 insert into hospitalization (nights, roomNum, pId)
-values ();
+values (32,005,456);
 
 -- ROOMCHARGE --
 insert into roomCharge (pID, roomNum, fee)

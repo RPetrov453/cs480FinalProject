@@ -20,16 +20,16 @@ insert into nurse (nID, nname, phone, cert, address)
 values (786,'Robert Petrov', '1325839451', '3152', '1204 North Kingston Ave');
 
 insert into nurse (nID, nname, phone, cert, address)
-values (486,'robert petrov', '5667564681', '6214', '401 West Maple Road');
+values (486,'Clarence Newton', '5667564681', '6214', '401 West Maple Road');
 
 insert into nurse (nID, nname, phone, cert, address)
-values (453, 'robert petrov', '9843156481', '1354', '222 Hudson Ave');
+values (453, 'Mercedes Hampton', '9843156481', '1354', '222 Hudson Ave');
 
 insert into nurse (nID, nname, phone, cert, address)
-values (687, 'robert petrov', '6451346842', '4562', '68 East Yukon Street');
+values (687, 'Harrison Arias', '6451346842', '4562', '68 East Yukon Street');
 
 insert into nurse (nID, nname, phone, cert, address)
-values (157, 'robert petrov', '9456215798', '6542', '66 Glenwood Road');
+values (157, 'Kenneth Rosario', '9456215798', '6542', '66 Glenwood Road');
 
 
 -- HOSPITAL PHYSICIANS -- 
@@ -40,10 +40,10 @@ insert into physician (physID, pname, phone, cert, address)
 values (345, 'Alexander Fleming', '6483154687', '9998', '9874 South Laneston Street');
 
 insert into physician (physID, pname, phone, cert, address)
-values (978, 'Cody Autry', '9543214596', '9997', '9 Wild Horse Ave');
+values (978, 'Lyndon Murray', '9543214596', '9997', '9 Wild Horse Ave');
 
 insert into physician (physID, pname, phone, cert, address)
-values (841, 'Cody Autry', '7486543215', '9996', '7427 Glen Eagles Ave');
+values (841, 'Mackenzie Reese', '7486543215', '9996', '7427 Glen Eagles Ave');
 
 insert into physician (physID, pname, phone, cert, address)
-values (642, 'Cody Autry', '7851354687', '9995', '73 East Augusta Road');
+values (642, 'Kain Small', '7851354687', '9995', '73 East Augusta Road');

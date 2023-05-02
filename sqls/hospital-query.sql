@@ -1,5 +1,5 @@
--- Find the address of all patients. 
-select * from;
+-- Find the address of all patients whose names start with the letter K. 
+select  from;
 
 select * from;
 
@@ -44,7 +44,7 @@ select * from;
 
 select * from;
 
--- Three Nested Queries
+-- Three Nested Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Find all patients with pneumonia being treated by doctor XXX
 select patient.name as "Name", disease 
@@ -61,13 +61,23 @@ select * from;
 
 -- Staff Contact List View.
 create view staff_list as
-select 
+select pname, phone, expertise
+from physician;
 
 -- Medication View. 
 create view medicate_patient as
-select 
--- 
+select patient.name, medication, roomNum 
+from medicate 
+join patient on patient.pID = medicate.pID 
+join hospitalization on medicate.pID = hospitalization.pID;
 
+-- Execution View
+create view execute_instructions as
+select nurse.nname, date, iCode, patient.name, roomNum
+from execution 
+join nurse on execution.nID = nurse.nID
+join patient on patient.pID = execution.pID 
+join hospitalization on patient.pID = hospitalization.pID;
 
 
 -- 3 Triggers ----------------------------------------------------------------------------------------------------------------------------------------------------------------

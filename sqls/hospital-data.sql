@@ -101,3 +101,132 @@ values (124, 'patient has bronchitis', 'alive', 'Bronchitis', '03-28-2023',456);
 
 
 -- HOSPITAL INVOICES --
+insert into invoice (record, amount, invId, pId)
+values ('fed 4x, stayed 2 days', 1000,315,635);
+
+insert into invoice (record, amount, invId, pId)
+values ('received x-rays, fed 10x, stayed 5 days', 6500,786,124);
+
+insert into invoice (record, amount, invId, pId)
+values ('fed 3x, stayed 6 days', 4750,641,785);
+
+insert into invoice (record, amount, invId, pId)
+values ('fed 2x, stayed 1 day, received surgery', 3450,786,789);
+
+insert into invoice (record, amount, invId, pId)
+values ('fed 14x, stayed 7 days', 9825,124,456);
+
+
+-- RELATION TABLE INSERTS --
+
+-- MONITOR --
+insert into monitor(duration, physID, pID)
+values (5, 712, 124);
+
+insert into monitor(duration, physID, pID)
+values (2, 345, 456);
+
+insert into monitor(duration, physID, pID)
+values (3, 978, 789);
+
+insert into monitor(duration, physID, pID)
+values (2, 841, 785);
+
+insert into monitor(duration, physID, pID)
+values (1, 841, 635);
+
+-- ORDERS --
+insert into orders(date, iCode, physID, pID)
+values ('04-16-2023', 612, 841, 635);
+
+insert into orders(date, iCode, physID, pID)
+values ('04-29-2023', 161, 712, 124);
+
+insert into orders(date, iCode, physID, pID)
+values ('04-19-2023',723,841,785);
+
+insert into orders(date, iCode, physID, pID)
+values ('05-01-2023',124,978,789);
+
+insert into orders(date, iCode, physID, pID)
+values ('03-28-2023',251,345,456);
+
+-- EXECUTION --
+insert into execution(iCode, nID, pID, date, hstatus)
+values ();
+
+insert into execution(iCode, nID, pID, date, hstatus)
+values ();
+
+insert into execution(iCode, nID, pID, date, hstatus)
+values ();
+
+insert into execution(iCode, nID, pID, date, hstatus)
+values ();
+
+insert into execution(iCode, nID, pID, date, hstatus)
+values ();
+
+-- MEDICATE --
+insert into medicate (medication, nID, pID)
+values ();
+
+insert into medicate (medication, nID, pID)
+values ();
+
+insert into medicate (medication, nID, pID)
+values ();
+
+insert into medicate (medication, nID, pID)
+values ();
+
+insert into medicate (medication, nID, pID)
+values ();
+
+-- HOSPITALIZATION
+insert into hospitalization (nights, roomNum, pId)
+values ();
+
+insert into hospitalization (nights, roomNum, pId)
+values ();
+
+insert into hospitalization (nights, roomNum, pId)
+values ();
+
+insert into hospitalization (nights, roomNum, pId)
+values ();
+
+insert into hospitalization (nights, roomNum, pId)
+values ();
+
+-- ROOMCHARGE --
+insert into roomCharge (pID, roomNum, fee)
+values ();
+
+insert into roomCharge (pID, roomNum, fee)
+values ();
+
+insert into roomCharge (pID, roomNum, fee)
+values ();
+
+insert into roomCharge (pID, roomNum, fee)
+values ();
+
+insert into roomCharge (pID, roomNum, fee)
+values ();
+
+-- INSTRUCTIONCHARGE --
+insert into instructionCharge (iCode, pID, fee)
+values ();
+
+insert into instructionCharge (iCode, pID, fee)
+values ();
+
+insert into instructionCharge (iCode, pID, fee)
+values ();
+
+insert into instructionCharge (iCode, pID, fee)
+values ();
+
+insert into instructionCharge (iCode, pID, fee)
+values ();

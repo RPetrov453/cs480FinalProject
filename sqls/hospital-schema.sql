@@ -7,8 +7,7 @@ create table patient(
 	pID int Primary key,
     phone int,
     name varchar (50),
-    address varchar (100)
-    
+    address varchar (100)    
 );
 create table nurse(
 	nID int PRIMARY KEY,
@@ -28,15 +27,13 @@ create table physician(
 create table room(
 	roomNum int primary key,
     capacity int,
-    fee int,
-    foreign key (pID) references patient(pID)
+    fee int
 );
 
 create table instruction(
 	iCode int primary key,
     fee int,
-    descript varchar(100),
-    foreign key (physID) references physician(physID)
+    descript varchar(100)
 );
 
 create table health_record(
@@ -50,10 +47,14 @@ create table health_record(
 );
 
 create table invoice(
-    
+    record varchar(50),
+    amount int,
+    invID int primary key,
+    pID int,
+    foreign key (pID) references patient(pID)
 );
 
--- Creating the relations tables
+-- Creating the relations tables -------------------------------------------------------------------------------
 create table monitor(
 	duration int,
 	physID int,
@@ -102,4 +103,28 @@ create table hospitalization(
     primary key (pID,roomNum),
     foreign key (pID) references patient(pID),
 	foreign key (roomNum) references room(roomNum)
+);
+
+create table roomCharge(
+	pID int,
+    roomNum int,
+    fee int,
+	foreign key (pID) references patient(pID),
+    foreign key (roomNum) references room(roomNum)
+);
+
+create table instructionCharge(
+	iCode int,
+    pID int,
+    fee int,
+	foreign key (pID) references patient(pID),
+    foreign key (iCode) references instruction(iCode)
+);
+
+create table payment(
+	amount int,
+    pID int,
+    invID int,
+	foreign key (pID) references patient(pID),
+    foreign key (invID) references invoice(invID)
 );

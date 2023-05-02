@@ -3,15 +3,42 @@ select name, address
 from patient
 where name like 'M%';
 
-select * from;
+-- Select any patients who were not listed as stable after having orders executed on them, if they exist
+select name, hstatus 
+from patient
+join execution
+on patient.pID = execution.pID
+where hstatus != 'patient is stable';
 
-select * from;
+-- Select patients not being treated with advil, tylenol, or bayer
+select name, medication 
+from patient
+join medicate
+on patient.pID = medicate.pID
+where medication != 'tylenol' and medication != 'advil' and medication != 'bayer';
 
-select * from;
+-- Select any patients with invoices under $5000
+select name, amount 
+from patient
+join invoice
+on patient.pID = invoice.pID
+where amount < 5000;
 
-select * from;
+-- Select all patients whose health record is not 'stable'
+select name, health_status
+from patient
+join health_record
+on patient.pID = health_record.pID
+where health_status != 'stable';
 
-select * from;
+-- Select patients who are in rooms that cost over $400 per night
+select name, room.roomNum, fee
+from patient
+join hospitalization
+on patient.pID = hospitalization.pID
+join room
+on hospitalization.roomNum = room.roomNum
+where room.fee > 400;
 
 -- Three join queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -40,12 +67,22 @@ where pname = "Alexander Fleming";
 
 -- Three Aggregation Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- Select count of people staying in room number "357"
-select * from;
+-- Select the sum total $ of patients who owe more than $5000 in an invoice
+select sum(amount)
+from invoice
+where amount > 5000;
 
-select * from;
+-- Number of patients staying hospitalized for over 10 nights. 
+select count(pID) as "Long-Stay Patients" 
+from hospitalization
+where nights > 10;
 
-select * from;
+-- Select count of people with covid-19 at the hospital.
+select count(name)
+from patient
+join health_record
+on patient.pId = health_record.pId
+where disease = 'covid-19';
 
 -- Three Nested Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -66,7 +103,11 @@ where name not in
      from patient
 	 where address = '7638 Hamilton Circle');
 
-select * from;
+-- Find physicians who haven’t given any orders. 
+select pname
+from physician
+where physID NOT IN(
+    select physID from orders);
 
 
 -- 3 Views ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,20 +134,52 @@ join hospitalization on patient.pID = hospitalization.pID;
 
 
 -- 3 Triggers ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Trigger to create a new basic invoice for a patient once they are entered into database.
 DELIMITER //
-create trigger payInvoice
-after insert on payment
- 
+create trigger new_invoice 
+after insert on patient
 for each row
 begin
-  IF New.name = "Friendly" THEN
-    insert into Likes select New.id, Highschooler.id from Highschooler 
-    where Highschooler.grade = New.grade;
+  IF New.pID not in (select pID from invoice) THEN
+	SET @new_invID = (select invID from invoice order by id DESC limit 1) + 1;
+    insert into invoice values ('New Hospitalization',0,new_invID, New.pID);
   END IF;
 end //
-DELIMITER;
+DELIMITER ;
+
+-- Trigger to hospitalize patients with covid-19 into Room 5 for atleast 10 days.
+DELIMITER //
+create trigger covid_patient
+after insert on health_record 
+for each row
+begin
+  IF New.disease = 'covid-19' THEN
+    insert into hospitalization values (10, New.pID, 5);
+  END IF;
+end //
+DELIMITER ;
+
+-- Trigger to 
+DELIMITER //
+create trigger covid_patient
+after insert on health_record 
+for each row
+begin
+  IF New.disease = 'covid-19' THEN
+    insert into hospitalization values (10, New.pID, 5);
+  END IF;
+end //
+DELIMITER ;
+
+-- Trigger to 
 
 
 -- 2 Transactions ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+begin transaction remove_patient ;
+set transaction read write; 
+delete from patient
+where patientID = 2
 
+commit;

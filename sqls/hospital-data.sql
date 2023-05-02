@@ -97,7 +97,7 @@ insert into health_record (rID, descript, health_status, disease, date, pID)
 values (786, 'patient has a broken leg', 'stable', 'broken leg', '05-01-2023',789);
 
 insert into health_record (rID, descript, health_status, disease, date, pID)
-values (124, 'patient has bronchitis', 'alive', 'Bronchitis', '03-28-2023',456);
+values (124, 'patient has covid-19', 'alive', 'covid-19', '03-28-2023',456);
 
 
 -- HOSPITAL INVOICES --

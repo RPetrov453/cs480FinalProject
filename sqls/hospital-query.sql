@@ -49,13 +49,22 @@ select * from;
 
 -- Three Nested Queries ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- Find all patients with pneumonia being treated by doctor XXX
-select patient.name as "Name", disease 
+-- Find all patients with pneumonia
+select patient.name as "Name"
 from patient 
-where patient.name in (select name from patient)
-and disease = 'Pneumonia';
+where patient.pID in 
+	(select pID
+	from health_record
+    where disease = 'pneumonia');
 
-select * from;
+-- Find all patients that don't live in 7638 Hamilton Circle
+-- Used for the sake of quarantine for diseases.
+select name, address 
+from patient
+where name not in 
+	(select name
+     from patient
+	 where address = '7638 Hamilton Circle');
 
 select * from;
 

@@ -200,33 +200,49 @@ insert into hospitalization (nights, roomNum, pId)
 values (32,005,456);
 
 -- ROOMCHARGE --
-insert into roomCharge (pID, roomNum, fee)
-values ();
+insert into roomCharge (roomNum, fee)
+values (001,1500);
 
-insert into roomCharge (pID, roomNum, fee)
-values ();
+insert into roomCharge (roomNum, fee)
+values (002,7000);
 
-insert into roomCharge (pID, roomNum, fee)
-values ();
+insert into roomCharge (roomNum, fee)
+values (003,5000);
 
-insert into roomCharge (pID, roomNum, fee)
-values ();
+insert into roomCharge (roomNum, fee)
+values (004,500);
 
-insert into roomCharge (pID, roomNum, fee)
-values ();
+insert into roomCharge (roomNum, fee)
+values (005,15000);
 
 -- INSTRUCTIONCHARGE --
-insert into instructionCharge (iCode, pID, fee)
-values ();
+insert into instructionCharge (iCode, fee)
+values (161, 100);
 
-insert into instructionCharge (iCode, pID, fee)
-values ();
+insert into instructionCharge (iCode, fee)
+values (612, 300);
 
-insert into instructionCharge (iCode, pID, fee)
-values ();
+insert into instructionCharge (iCode, fee)
+values (723,50);
 
-insert into instructionCharge (iCode, pID, fee)
-values ();
+insert into instructionCharge (iCode, fee)
+values (124,700);
 
-insert into instructionCharge (iCode, pID, fee)
-values ();
+insert into instructionCharge (iCode,fee)
+values (251,1500);
+
+-- PAYMENT --
+insert into payment (amount, pID, invID)
+values (5000,124,786);
+
+insert into payment (amount, pID, invID)
+values (8000,635,315);
+
+insert into payment (amount, pID, invID)
+values (6000,785,641);
+
+insert into payment (amount, pID, invID)
+values (700,789,874);
+
+insert into payment (amount, pID, invID)
+values (20000,456,124);
